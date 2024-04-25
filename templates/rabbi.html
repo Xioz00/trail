@@ -1,0 +1,86 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rabbit Eyes Follow Mouse</title>
+    <style>
+        body {
+            margin: 10;
+            padding: 15;
+            overflow: hidden;
+        }
+
+        #rabbit {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 300px;
+            height: 500px;
+            background-image: url("{% static 'rabbit.png' %}");
+            background-size: cover;
+        }
+
+        .eye {
+            position: absolute;
+            width: 40px;
+            height: 40px;
+            background-color: black;
+            border-radius: 50%;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        #left-eye {
+            transform-origin: 70% 50%;
+        }
+
+        #right-eye {
+            transform-origin: 30% 50%;
+        }
+    </style>
+</head>
+<body>
+    <div id="rabbit">
+        <div class="eye" id="left-eye"></div>
+        <div class="eye" id="right-eye"></div>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            var leftEye = document.getElementById("left-eye");
+            var rightEye = document.getElementById("right-eye");
+
+            document.addEventListener("mousemove", function(event) {
+                var mouseX = event.clientX;
+                var mouseY = event.clientY;
+
+                var leftEyeRect = leftEye.getBoundingClientRect();
+                var rightEyeRect = rightEye.getBoundingClientRect();
+
+                var leftEyeCenterX = leftEyeRect.left + leftEyeRect.width / 2;
+                var leftEyeCenterY = leftEyeRect.top + leftEyeRect.height / 2;
+
+                var rightEyeCenterX = rightEyeRect.left + rightEyeRect.width / 2;
+                var rightEyeCenterY = rightEyeRect.top + rightEyeRect.height / 2;
+
+                var deltaXLeft = mouseX - leftEyeCenterX;
+                var deltaYLeft = mouseY - leftEyeCenterY;
+
+                var deltaXRight = mouseX - rightEyeCenterX;
+                var deltaYRight = mouseY - rightEyeCenterY;
+
+                var angleLeft = Math.atan2(deltaYLeft, deltaXLeft);
+                var angleRight = Math.atan2(deltaYRight, deltaXRight);
+
+                leftEye.style.transform = "translate(-50%, -50%) rotate(" + angleLeft + "rad)";
+                rightEye.style.transform = "translate(-50%, -50%) rotate(" + angleRight + "rad)";
+            });
+        });
+    </script>
+</body>
+</html>

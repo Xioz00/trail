@@ -1,0 +1,13 @@
+body {
+    margin: 0;
+    padding: 0;
+    overflow: hidden; /* Prevent scroll bars */
+}
+
+#rabbit {
+    width: 700px;
+    height: 1000px;
+    background-image: url("assets/rabbit.png");
+    background-size: cover;
+    position: absolute;
+}

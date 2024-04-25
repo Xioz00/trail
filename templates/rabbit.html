@@ -1,0 +1,22 @@
+{% load static %}
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rabbit Eyes Follow Mouse</title>
+    <link rel="stylesheet" href="{% static 'styles.css' %}
+">
+</head>
+<body>
+    <div id="rabbit">
+        <div class="eye" id="left-eye"></div>
+<!--                <img src="{% static 'rabbit.png' %}" alt="Rabbit">-->
+
+        <div class="eye" id="right-eye"></div>
+    </div>
+    <script src="{% static 'script.js' %}"></script>
+</body>
+</html>

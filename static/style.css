@@ -1,0 +1,61 @@
+{% load static %}
+
+body {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+#rabbit {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 200px;
+    height: 200px;
+    background-image: url("{% static'rabbit.png' %}");
+    background-size: cover;
+}
+
+.eye {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    background-color: white;
+    border-radius: 50%;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+#left-eye {
+    transform-origin: 70% 50%;
+}
+
+#right-eye {
+    transform-origin: 30% 50%;
+}
+
+
+
+
+
+
+
+
+
+
+
+body {
+    margin: 0;
+    padding: 0;
+    overflow: hidden; /* Prevent scroll bars */
+}
+
+#rabbit {
+    width: 600px;
+    height: 700px;
+    background-image: url("{% static 'rabbit.png' %}");
+    background-size: cover;
+    position: absolute;
+}
